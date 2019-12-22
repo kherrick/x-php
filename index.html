@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <title>PIB: PHP in Browser</title>
+</head>
+<body>
+  <style>
+    iframe {
+      border: 0;
+      height: 100vw;
+      width: 100vw;
+    }
+  </style>
+  <iframe id="output"></iframe>
+  <script type="text/javascript" src="./assets/php.js"></script>
+  <script type="text/javascript" type="module">
+    import('./assets/php.loader.js').then(php => {
+      php.default(`
+        <?php
+          $message = 'Hello World';
+
+          echo "<p>$message</p>";
+      `)
+    })
+  </script>
+</body>
+
+</html>

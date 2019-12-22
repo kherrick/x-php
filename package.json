@@ -1,0 +1,22 @@
+{
+  "name": "x-php",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "bin/serve-me.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kherrick/x-php.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kherrick/x-php/issues"
+  },
+  "homepage": "https://github.com/kherrick/x-php#readme",
+  "devDependencies": {
+    "http-server": "^0.12.0"
+  }
+}
