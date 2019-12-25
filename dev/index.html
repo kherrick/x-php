@@ -6,25 +6,28 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <meta name="theme-color" content="#000000">
 
-  <base href="/x-php/">
+  <base href="/dev">
 
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="theme.css">
   <title>x-php app</title>
   <script>
-    window.__XPHP_REMOTE_PACKAGE_BASE = '/x-php/assets'
+    // HACK: The Redux package assumes `process` exists - mock it here before the module is loaded.
+    // ----: also useful for live development where node_env doesn't exist
+    window.process = {
+      env: {
+        NODE_ENV: 'development'
+      }
+    }
+
+    window.__XPHP_REMOTE_PACKAGE_BASE = 'assets'
   </script>
 </head>
 <body>
-  <x-php-app siteTitle="x-php app" siteUrl="/x-php/"></x-php-app>
+  <x-php-app siteTitle="x-php app" siteUrl="/dev"></x-php-app>
 
-  <script type="module" src="./dist/esm/x-php-app.js"></script>
-  <script type="module">
-    import registerServiceWorker from './service-worker/registerServiceWorker.js'
-
-    registerServiceWorker(document.querySelector('base').href.replace(/\/$/, ''))
-  </script>
+  <script type="module" src="./src/x-php-app/x-php-app.js"></script>
 </body>
 
 </html>

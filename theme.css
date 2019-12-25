@@ -1,0 +1,82 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* This is a font-stack that tries to use the system-default sans-serifs first */
+  font-family: Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+x-php-app {
+  --x-php-article-gallery-display: flex;
+  --x-php-article-gallery-item-flex: auto;
+  --x-php-article-gallery-item-margin: 0;
+
+  --x-php-h1-font-size: 2.25rem;
+  --x-php-h1-font-weight: 600;
+  --x-php-img-padding-top: 2rem;
+  --x-php-img-max-width: 100%;
+  --x-php-li-display: list-item;
+  --x-php-ul-list-style-type: disc;
+  --x-php-ul-margin: 0 0 0 1rem;
+}
+
+.theme-light body {
+  background-color: #fff;
+
+  color: #000;
+}
+
+.theme-dark body {
+  background-color: #111;
+
+  color: #aaa;
+}
+
+.theme-light x-php-app {
+  background-color: #fff;
+
+  --x-php-a-color: #000;
+  --x-php-app-toolbar-background-color: #111;
+  --x-php-branding-text-color: #eee;
+  --x-php-drawer-container-background-color: #111;
+  --x-php-drawer-header-background-color: #111;
+  --x-php-drawer-header-color: #eee;
+
+  --drawer-scrim-background: rgba(0, 0, 0, 0.8);
+  --paper-dropdown-menu-color: #000;
+  --paper-dropdown-menu-focused-color: #000;
+  --paper-listbox-background-color: #222;
+  --paper-listbox-color: #eee;
+  --primary-background-color: #fff;
+  --primary-color: #000;
+  --primary-foreground-color: #111;
+  --primary-text-color: #111;
+  --secondary-text-color: #000;
+  --text-color: #111;
+}
+
+.theme-dark x-php-app {
+  background-color: #000;
+
+  --x-php-a-color: #fff;
+  --x-php-app-toolbar-background-color: #000;
+  --x-php-branding-text-color: #fff;
+  --x-php-drawer-header-background-color: #000;
+  --x-php-drawer-header-color: #eee;
+
+  --drawer-scrim-background: rgba(0, 0, 0, 0.8);
+  --paper-dropdown-menu-color: #fff;
+  --paper-dropdown-menu-focused-color: #fff;
+  --paper-listbox-background-color: #111;
+  --primary-background-color: #000;
+  --primary-color: #fff;
+  --primary-foreground-color: #eee;
+  --primary-text-color: #eee;
+  --secondary-text-color: #fff;
+  --text-color: #eee;
+}

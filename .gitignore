@@ -1,2 +1,16 @@
-/node_modules
+## editors
+/.idea
+/.vscode
+
+## system files
+.DS_Store
+
+## npm
+/node_modules/
+/npm-debug.log
 /package-lock.json
+
+# build
+/dist/
+/service-worker.js
+/assets/php.wasm
