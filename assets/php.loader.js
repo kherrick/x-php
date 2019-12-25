@@ -1,25 +1,32 @@
-export default (default_code = '<?php phpinfo(); ') => {
-  let phpModule = null;
+export default (PHP, default_code = '<?php phpinfo() ') => {
+  let phpModule = null
 
-  const output_area = document.getElementById('output').contentWindow.document;
-  output_area.open();
+  const outputElement = document.getElementById('output')
+
+  const outputArea = outputElement.contentWindow.document
+
+  outputArea.open()
 
   const init = () => {
     let code = default_code
-    code = code.replace(/^\s*<\?php/, '') // remove <?php
-    code = code + '\necho PHP_EOL;' // flush line buffer
+    code = code.replace(/^\s*<\?php/, '')
+    code = code + '\necho PHP_EOL;'
 
     let ret = phpModule.ccall('pib_eval', 'number', ['string'], [code])
 
     if (ret != 0) {
-      output_area.write('Error, please check your code')
+      outputArea.write('Error, please check your code')
     }
 
-    output_area.close();
+    outputArea.close()
+
+    outputElement.contentDocument.body.style.margin = 0
+    outputElement.contentDocument.body.style.padding = 0
+
   }
 
   const print = text => {
-    output_area.write(text)
+    outputArea.write(text)
   }
 
   const phpModuleOptions = {

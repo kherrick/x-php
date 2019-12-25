@@ -3,26 +3,34 @@
 <head>
   <meta charset="utf-8">
   <base href="/">
-  <title>PIB: PHP in Browser</title>
+  <title>x-php</title>
 </head>
 <body>
   <style>
+    html, body, iframe {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
     iframe {
       border: 0;
-      height: 100vw;
-      width: 100vw;
+      width: 100%;
     }
   </style>
   <iframe id="output"></iframe>
-  <script type="text/javascript" src="./assets/php.js"></script>
   <script type="text/javascript" type="module">
-    import('./assets/php.loader.js').then(php => {
-      php.default(`
-        <?php
-          $message = 'Hello World';
+    import('./assets/php.js').then(mod => mod.default).then(PHP => {
+      import('./assets/php.loader.js').then(mod => mod.default).then(loader => {
+        loader(PHP, `
+          <?php
+            $message = 'Hello Wasm World';
 
-          echo "<p>$message</p>";
-      `)
+            echo "<div style='background-color: #ccc;'>";
+            echo "<h1 style='text-align: center;'>$message</h1>";
+            echo "</div>";
+        `)
+      })
     })
   </script>
 </body>
