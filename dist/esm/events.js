@@ -1,0 +1,1 @@
+var e="x-php-drawer-toggle",r=function(){var e=arguments.length>0&&void 0!==arguments[0]&&arguments[0];return new CustomEvent("x-php-drawer-toggle",{bubbles:!0,composed:!0,detail:e})};export{r as XPHPDrawerToggle,e as X_PHP_DRAWER_TOGGLE};

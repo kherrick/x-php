@@ -11,6 +11,6 @@
 /package-lock.json
 
 # build
-/dist/
-/service-worker.js
+#/dist/
+#/service-worker.js
 /assets/php.wasm
