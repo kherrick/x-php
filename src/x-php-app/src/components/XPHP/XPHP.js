@@ -7,19 +7,30 @@ export class XPHP extends LitElement {
   static get styles() {
     return css`
       iframe {
-        border: 0;
-        height: 100vw;
-        width: 100%;
+        border: var(--x-php-iframe-border, 0);
+        height: var(--x-php-iframe-height, 100vw);
+        margin: var(--x-php-iframe-margin, 0);
+        padding: var(--x-php-iframe-padding, 0);
+        width: var(--x-php-iframe-width, 100%);
+        overflow: hidden;
       }
     `;
   }
 
   firstUpdated() {
+    this._iframe = this.shadowRoot.querySelector('iframe')
+
     const codeSlot = this.shadowRoot.getElementById('code')
 
     codeSlot.addEventListener('slotchange', event => {
       event.target.assignedNodes().forEach(node => {
-        if (node.nodeName === 'SCRIPT' && node.type === 'text/php') {
+        if (
+            node.nodeName === 'SCRIPT'
+            && (node.type === 'text/php'
+            ||  node.type === 'text/x-php'
+            ||  node.type === 'application/php'
+            ||  node.type === 'application/x-php'
+          )) {
 
           let phpModule = null
 
